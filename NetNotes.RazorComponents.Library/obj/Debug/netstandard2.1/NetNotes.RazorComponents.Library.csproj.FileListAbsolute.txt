@@ -43,3 +43,5 @@ C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razo
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\TimeSignatureComponent.razor.g.cs
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\RazorDeclaration\BarlineComponent.razor.g.cs
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\BarlineComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\RazorDeclaration\RestComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\RestComponent.razor.g.cs

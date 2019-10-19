@@ -5,13 +5,22 @@
             : LineSpacing * Measure.KeySignature.NumberOfSharps) : 0) +
             (Measure.ShowTime ? (LineSpacing * 1.5) : 0);
 
-    var noteSpacing = (Size.Width - offsetX) / Measure.Pattern.Count();
+    var noteSpacing = (Size.Width - offsetX) / (Measure.Pattern.Count() + 0.5);
+
+    offsetX += noteSpacing / 2;
 }
-    <svg style="width: @Size.Width; height: @Size.Height;
+    <svg style="width: @Size.Width; height: @Size.Height; border: 0px;
      @(Transform != null ? $"transform: {Transform.ToString()};" : "")">
         @foreach (var rhythmUnit in Measure.Pattern)
         {
-            <NoteComponent RhythmUnit="rhythmUnit" LineSpacing="LineSpacing" Offset="offsetX" />
+            if (rhythmUnit is Note note) 
+            {
+                <NoteComponent Note="note" LineSpacing="LineSpacing" Offset="offsetX" />
+            }
+            else if (rhythmUnit is Rest rest)
+            {
+                <RestComponent Rest="rest" OffsetY="StaffOffsetY" OffsetX="offsetX" Width="@(LineSpacing * 1.5)" />
+            }
             offsetX += noteSpacing;
         }
         @{offsetX = 0;}

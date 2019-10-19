@@ -4,14 +4,16 @@
 
 Welcome to your new app.
 
-<div style="border: 1px solid pink">
+<div style="border: 1px solid pink; font-size: 0;">
     @{
-        var ms = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "A/4, G/4, F/4, F/4")
+        var ms = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "A/4, G/4, 4r, F/4")
         {
             ShowClef = true,
             ShowKey = true,
             ShowTime = true
         };
+        var ms2 = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "C/4, D/4, 4r, E/4");
     }
-    <MeasureComponent Measure="ms" Size="new Size(1200, 200)" />
+    <MeasureComponent Measure="ms" Size="new Size(500, 200)" />
+    <MeasureComponent Measure="ms2" Size="new Size(400, 200)" />
 </div>

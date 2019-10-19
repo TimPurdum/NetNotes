@@ -30,5 +30,8 @@ namespace NetNotes.Business.Elements
         public Duration Duration { get; set; }
 
         public IList<IExpression> Expressions { get; set; }
+
+        public StemDirection StemDirection { get; set; }
+        public IList<Beam> Beams { get; set; }
     }
 }
