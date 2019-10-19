@@ -66,6 +66,76 @@
         }
       }
     },
+    "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\NetNotes.RazorComponents.Library.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\NetNotes.RazorComponents.Library.csproj",
+        "projectName": "NetNotes.RazorComponents.Library",
+        "projectPath": "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\NetNotes.RazorComponents.Library.csproj",
+        "packagesPath": "C:\\Users\\tpurdum\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tpurdum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\git\\NoteSystem\\NetNotes.Business\\NetNotes.Business.csproj": {
+                "projectPath": "C:\\git\\NoteSystem\\NetNotes.Business\\NetNotes.Business.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\git\\NoteSystem\\NetNotes.Ui.Blazor\\NetNotes.Ui.Blazor.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -95,6 +165,9 @@
             "projectReferences": {
               "C:\\git\\NoteSystem\\NetNotes.Business\\NetNotes.Business.csproj": {
                 "projectPath": "C:\\git\\NoteSystem\\NetNotes.Business\\NetNotes.Business.csproj"
+              },
+              "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\NetNotes.RazorComponents.Library.csproj": {
+                "projectPath": "C:\\git\\NoteSystem\\NetNotes.RazorComponents.Library\\NetNotes.RazorComponents.Library.csproj"
               }
             }
           }

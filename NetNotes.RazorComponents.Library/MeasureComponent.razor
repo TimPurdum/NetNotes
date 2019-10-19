@@ -1,0 +1,47 @@
+﻿@{ 
+    var offsetX = LineSpacing + (Measure.ShowClef ? (Size.Height / 3.5) : 0) +
+        (Measure.ShowKey ? (Measure.KeySignature.NumberOfFlats > 0
+            ? LineSpacing * Measure.KeySignature.NumberOfFlats
+            : LineSpacing * Measure.KeySignature.NumberOfSharps) : 0);
+}
+    <svg style="width: @Size.Width; height: @Size.Height;
+     @(Transform != null ? $"transform: {Transform.ToString()};" : "")">
+        @foreach (var rhythmUnit in Measure.Pattern)
+        {
+            <NoteComponent RhythmUnit="rhythmUnit" LineSpacing="LineSpacing" Offset="offsetX" />
+            offsetX += LineSpacing * 2;
+        }
+        @{offsetX = 0;}
+
+        <StaffComponent Size="Size" />
+        @if (Measure.ShowClef)
+        {
+            <TrebleClefComponent Size="Size" OffsetX="offsetX" />
+            offsetX += Size.Height / 3.5;
+        }
+        @if (Measure.ShowKey)
+        {
+            <KeySignatureComponent Size="Size" KeySignature="Measure.KeySignature"
+                                   OffsetX="offsetX" Clef="Measure.Clef" />
+
+            offsetX = Measure.KeySignature.NumberOfFlats > 0
+            ? LineSpacing * Measure.KeySignature.NumberOfFlats
+            : LineSpacing * Measure.KeySignature.NumberOfSharps;
+        }
+
+    </svg>
+
+@code {
+    [Parameter]
+    public Measure Measure { get; set; }
+
+    [Parameter]
+    public Transform Transform { get; set; }
+
+    [Parameter]
+    public Size Size { get; set; }
+
+
+    public double StaffOffsetY => Size.Height / 3;
+    public double LineSpacing => StaffOffsetY / 4;
+}

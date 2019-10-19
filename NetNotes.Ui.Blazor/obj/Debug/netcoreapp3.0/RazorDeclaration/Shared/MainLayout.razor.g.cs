@@ -78,7 +78,7 @@ using NetNotes.Ui.Blazor.Shared;
 #nullable disable
 #nullable restore
 #line 10 "C:\git\NoteSystem\NetNotes.Ui.Blazor\_Imports.razor"
-using NetNotes.Ui.Blazor.Components;
+using NetNotes.RazorComponents.Library;
 
 #line default
 #line hidden

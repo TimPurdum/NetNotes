@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetNotes.Business\NetNotes.Business.csproj" />
+    <ProjectReference Include="..\NetNotes.RazorComponents.Library\NetNotes.RazorComponents.Library.csproj" />
   </ItemGroup>
 
 </Project>
