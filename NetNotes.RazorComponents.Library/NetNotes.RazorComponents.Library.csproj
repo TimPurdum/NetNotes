@@ -5,6 +5,14 @@
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\quarterRest.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\quarterRest.png" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0" />
@@ -14,6 +22,23 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetNotes.Business\NetNotes.Business.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,12 @@
+﻿<line x1="@OffsetX" y1="@OffsetY" x2="@OffsetX" y2="@(OffsetY * 2)" style="stroke: black; stroke-width:@(Width)px;" />
+
+@code {
+    [Parameter]
+    public double OffsetX { get; set; }
+
+    [Parameter]
+    public double OffsetY { get; set; }
+
+    [Parameter]
+    public double Width { get; set; }
+}

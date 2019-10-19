@@ -53,5 +53,8 @@ namespace NetNotes.Business.Elements
         public bool ShowClef { get; set; } = false;
         public bool ShowTime { get; set; } = false;
         public bool ShowKey { get; set; } = false;
+
+        public Barline StartingBarline { get; set; } = Barline.Single;
+        public Barline EndingBarline { get; set; } = Barline.Single;
     }
 }

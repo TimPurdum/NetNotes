@@ -1,0 +1,16 @@
+﻿<text x="@OffsetX" y="@(Height * 1.4)" style="font-size: @(Height * 0.7)px; font-family: Georgia">@TimeSignature.Top</text>
+<text x="@OffsetX" y="@(Height * 1.9)" style="font-size: @(Height * 0.7)px; font-family: Georgia">@TimeSignature.Bottom</text>
+
+@code {
+    [Parameter]
+    public double Width { get; set; }
+
+    [Parameter]
+    public double Height { get; set; }
+
+    [Parameter]
+    public double OffsetX { get; set; }
+
+    [Parameter]
+    public TimeSignature TimeSignature { get; set; }
+}
