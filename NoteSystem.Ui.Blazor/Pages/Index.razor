@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<div style="border: 1px solid pink">
+    @{
+        var ms = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "A/4, G/4, F/4, F/4")
+        {
+            ShowClef = true,
+            ShowKey = true
+        };
+    }
+    <MeasureComponent Measure="ms" Size="new Size(400, 100)" />
+    <MeasureComponent Measure="ms" Size="new Size(400, 200)" />
+    <MeasureComponent Measure="ms" Size="new Size(600, 400)" />
+</div>

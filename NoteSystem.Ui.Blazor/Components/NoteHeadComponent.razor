@@ -1,0 +1,38 @@
+﻿<ellipse cx="80" cy="55" rx="80" ry="50" style="fill:black; visibility:@ellipseVisible; transform: @Transform rotate(-15deg);" />
+<circle cx="80" cy="55" r="40" stroke="white" fill="white" style="visibility:@circleVisible; transform: @Transform rotate(-15deg);" />
+<polygon points="80,10 150,100 10,100" style="fill:white;stroke:black;stroke-width:10; visibility: @triangleVisible; transform: @Transform" />
+
+@code {
+    [Parameter]
+    public NoteHead NoteHead { get => _noteHead;
+        set {
+            _noteHead = value;
+            switch (_noteHead.Shape)
+            {
+                case NoteHeadShape.ClosedOval:
+                    circleVisible = "collapse";
+                    ellipseVisible = "visible";
+                    triangleVisible = "collapse";
+                    break;
+                case NoteHeadShape.OpenOval:
+                    circleVisible = "visible";
+                    ellipseVisible = "visible";
+                    triangleVisible = "collapse";
+                    break;
+                case NoteHeadShape.Triangle:
+                    ellipseVisible = "collapse";
+                    circleVisible = "collapse";
+                    triangleVisible = "visible";
+                    break;
+            }
+        }
+    }
+
+    [Parameter]
+    public string Transform { get; set; }
+
+    private NoteHead _noteHead;
+    private string ellipseVisible = "visible";
+    private string circleVisible = "visible";
+    private string triangleVisible = "collapse";
+}

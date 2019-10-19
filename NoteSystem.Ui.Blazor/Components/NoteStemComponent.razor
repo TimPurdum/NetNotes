@@ -1,0 +1,12 @@
+﻿<line x1="0" y1="0" x2="0" y2="@Height" style="stroke:black;stroke-width:@(Width > 1 ? Width : 1); transform: @Transform;" />
+
+@code {
+    [Parameter]
+    public string Transform { get; set; }
+
+    [Parameter]
+    public double Height { get; set; }
+
+    [Parameter]
+    public double Width { get; set; }
+}

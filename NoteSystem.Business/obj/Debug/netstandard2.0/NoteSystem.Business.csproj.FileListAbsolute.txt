@@ -1,0 +1,8 @@
+C:\git\NoteSystem\NoteSystem.Business\obj\Debug\netstandard2.0\NoteSystem.Business.csprojAssemblyReference.cache
+C:\git\NoteSystem\NoteSystem.Business\obj\Debug\netstandard2.0\NoteSystem.Business.AssemblyInfoInputs.cache
+C:\git\NoteSystem\NoteSystem.Business\obj\Debug\netstandard2.0\NoteSystem.Business.AssemblyInfo.cs
+C:\git\NoteSystem\NoteSystem.Business\bin\Debug\netstandard2.0\NoteSystem.Business.deps.json
+C:\git\NoteSystem\NoteSystem.Business\bin\Debug\netstandard2.0\NoteSystem.Business.dll
+C:\git\NoteSystem\NoteSystem.Business\bin\Debug\netstandard2.0\NoteSystem.Business.pdb
+C:\git\NoteSystem\NoteSystem.Business\obj\Debug\netstandard2.0\NoteSystem.Business.dll
+C:\git\NoteSystem\NoteSystem.Business\obj\Debug\netstandard2.0\NoteSystem.Business.pdb

@@ -1,0 +1,18 @@
+﻿@for (var i = 0; i < LineCount; i++)
+{
+    var y = StaffOffsetY + (LineSpacing * i);
+    <line x1="0" y1="@y" x2="@Size.Width" y2="@y"
+          style="stroke:black;stroke-width:@(LineThickness > 1 ? LineThickness : 1);" />
+}
+
+@code {
+    [Parameter]
+    public Size Size { get; set; }
+
+    [Parameter]
+    public int LineCount { get; set; } = 5;
+
+    public double StaffOffsetY => Size.Height / 3.0;
+    public double LineSpacing => StaffOffsetY / 4;
+    public double LineThickness => Size.Height / 200.0;
+}

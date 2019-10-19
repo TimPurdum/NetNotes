@@ -1,0 +1,75 @@
+﻿@{
+    double xOffset = OffsetX;
+    double yOffset = 0;
+
+    if (KeySignature.NumberOfSharps > 0)
+    {
+        yOffset = StaffOffsetY - LineSpacing;
+
+        for (var i = 0; i < KeySignature.NumberOfSharps; i++)
+        {
+            <SharpComponent OffsetX="xOffset" OffsetY="yOffset" Size="Size" />
+
+            xOffset += LineSpacing;
+            if (i >= 3 && Clef == Clefs.Treble)
+            {
+                if (i % 2 == 1)
+                {
+                    yOffset += LineSpacing * 1.5;
+                }
+                else
+                {
+                    yOffset -= LineSpacing * 2;
+                }
+            }
+            else
+            {
+                if (i % 2 == 0)
+                {
+                    yOffset += LineSpacing * 1.5;
+                }
+                else
+                {
+                    yOffset -= LineSpacing * 2;
+                }
+            }
+            
+        }
+    }
+    else if (KeySignature.NumberOfFlats > 0)
+    {
+        yOffset = StaffOffsetY + (LineSpacing * 0.45);
+
+        for (var i = 0; i < KeySignature.NumberOfFlats; i++)
+        {
+            <FlatComponent OffsetX="xOffset" OffsetY="yOffset" Size="Size" />
+
+            xOffset += LineSpacing;
+            if (i % 2 == 0)
+            {
+                yOffset -= LineSpacing * 1.5;
+            }
+            else
+            {
+                yOffset += LineSpacing * 2;
+            }
+        }
+    }
+}
+
+@code {
+    [Parameter]
+    public Size Size { get; set; }
+
+    [Parameter]
+    public KeySignature KeySignature { get; set; }
+
+    [Parameter]
+    public Clef Clef { get; set; }
+
+    [Parameter]
+    public double OffsetX { get; set; }
+
+    public double StaffOffsetY => Size.Height / 3;
+    public double LineSpacing => StaffOffsetY / 4;
+}

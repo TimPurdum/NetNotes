@@ -1,0 +1,49 @@
+﻿<svg x="@Offset" y="@VerticalNotePosition()" width="@(LineSpacing * 2)" height="@(LineSpacing * 4)">
+    @if (RhythmUnit is Note note)
+    {
+        <NoteStemComponent Transform="@StemTransform()" Height="@(LineSpacing * 2.2)" Width="@(LineSpacing / 5)" />
+        <NoteHeadComponent Transform="@HeadTransform()"
+                           NoteHead="GetNoteHead(note)" />
+    }
+</svg>
+
+@code {
+    [Parameter]
+    public IRhythmUnit RhythmUnit { get; set; }
+
+    [Parameter]
+    public double Offset { get; set; }
+
+    [Parameter]
+    public double LineSpacing { get; set; }
+
+    public string StemTransform()
+    {
+        return $"translate({LineSpacing * 1.43}px, 0)";
+    }
+
+    public string HeadTransform()
+    {
+        return $"translate(0, {LineSpacing * 2}px) scale({0.009 * LineSpacing}, {0.009 * LineSpacing})";
+    }
+
+    public double VerticalNotePosition()
+    {
+        if (RhythmUnit is Note note)
+        {
+            return (LineSpacing * 6.738) - (note.Pitch.StaffLocation * (LineSpacing / 2));
+        }
+
+        return 0;
+    }
+
+    public NoteHead GetNoteHead(Note note)
+    {
+        if (note.Duration.CommonTimeBeatLength >= 2.0)
+        {
+            return new NoteHead(NoteHeadShape.OpenOval);
+        }
+
+        return new NoteHead(NoteHeadShape.ClosedOval);
+    }
+}
