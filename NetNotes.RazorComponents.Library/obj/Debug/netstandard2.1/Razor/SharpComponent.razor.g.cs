@@ -79,7 +79,7 @@ using System.Drawing;
 #line default
 #line hidden
 #nullable disable
-    public class SharpComponent : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class SharpComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

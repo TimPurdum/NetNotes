@@ -2,6 +2,7 @@
 {
     public enum Beam
     {
+        None,
         Start,
         Continue,
         End

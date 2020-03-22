@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace NetNotes.Business.Elements
 {
@@ -128,6 +129,77 @@ namespace NetNotes.Business.Elements
             }
         }
 
+        internal KeySignature(int numberOfSharps, int numberOfFlats)
+        {
+            NumberOfSharps = numberOfSharps;
+            NumberOfFlats = numberOfFlats;
+            MajorName = "C";
+            MinorName = "A";
+
+            switch (numberOfSharps)
+            {
+                case 1:
+                    MajorName = "G";
+                    MinorName = "E";
+                    break;
+                case 2:
+                    MajorName = "D";
+                    MinorName = "B";
+                    break;
+                case 3:
+                    MajorName = "A";
+                    MinorName = "F♯";
+                    break;
+                case 4:
+                    MajorName = "E";
+                    MinorName = "C♯";
+                    break;
+                case 5:
+                    MajorName = "B";
+                    MinorName = "G♯";
+                    break;
+                case 6:
+                    MajorName = "F♯";
+                    MinorName = "D♯";
+                    break;
+                case 7:
+                    MajorName = "C♯";
+                    MinorName = "A♯";
+                    break;
+            }
+            switch (numberOfFlats)
+            {
+                case 1:
+                    MajorName = "F";
+                    MinorName = "D";
+                    break;
+                case 2:
+                    MajorName = "B♭";
+                    MinorName = "G";
+                    break;
+                case 3:
+                    MajorName = "E♭";
+                    MinorName = "C";
+                    break;
+                case 4:
+                    MajorName = "A♭";
+                    MinorName = "F";
+                    break;
+                case 5:
+                    MajorName = "D♭";
+                    MinorName = "B♭";
+                    break;
+                case 6:
+                    MajorName = "G♭";
+                    MinorName = "E♭";
+                    break;
+                case 7:
+                    MajorName = "C♭";
+                    MinorName = "A♭";
+                    break;
+            }
+        }
+
         public int NumberOfSharps { get; }
         public int NumberOfFlats { get; }
         public string MajorName { get; }
@@ -170,6 +242,38 @@ namespace NetNotes.Business.Elements
         public static KeySignature GSharpMinor => BMajor;
         public static KeySignature DSharpMinor => FSharpMajor;
         public static KeySignature ASharpMinor => CSharpMajor;
+
+        public static KeySignature GetKey(string name)
+        {
+            name = name.ToUpperInvariant().Replace("-", "").Replace("MAJOR", "")
+                .Replace("MINOR", "m").Replace("FLAT", "♭").Replace("#", "♯")
+                .Replace("SHARP", "♯");
+
+            if (name.StartsWith("BB"))
+            {
+                name = name.Replace("BB", "B♭");
+            }
+            else if (name.Substring(1).Contains('B'))
+            {
+                name = name.Replace('B', '♭');
+            }
+
+            if (name.Last() == 'm')
+            {
+                name = name.Trim('m');
+                return AllKeys.First(k => k.MinorName.ToUpperInvariant().Equals(name.ToUpperInvariant()));
+            }
+
+            return AllKeys.First(k => k.MajorName.ToUpperInvariant().Equals(name.ToUpperInvariant()));
+        }
+
+        private static KeySignature[] AllKeys =
+        {
+            CMajor, FMajor, BFlatMajor, EFlatMajor, AFlatMajor, DFlatMajor, GFlatMajor,
+            GMajor, DMajor, AMajor, EMajor, BMajor, FSharpMajor, CSharpMajor,
+            AMinor, DMinor, GMinor, CMinor, FMinor, BFlatMinor, EFlatMinor,
+            EMinor, BMinor, FSharpMinor, CSharpMinor, GSharpMinor, DSharpMinor, ASharpMinor
+        };
     }
 
     public class UnknownKeySignatureException: Exception { }

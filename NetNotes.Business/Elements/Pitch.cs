@@ -203,6 +203,11 @@ namespace NetNotes.Business.Elements
 
             return new Pitch(newLetter, newOctave, newAccidental);
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 

@@ -6,15 +6,16 @@ namespace NetNotes.Business.Elements
     {
         public Score() { }
 
-        public Score(IList<Staff> staves)
+        public Score(List<Staff> staves)
         {
             Staves = staves;
         }
 
-        public IList<Staff> Staves { get; set; }
+        public List<Staff> Staves { get; set; } = new List<Staff>();
 
         public string Title { get; set; }
         public string Composer { get; set; }
         public string Lyricist { get; set; }
+        public string Copyright { get; set; }
     }
 }

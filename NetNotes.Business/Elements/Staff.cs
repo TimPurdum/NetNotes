@@ -6,14 +6,16 @@ namespace NetNotes.Business.Elements
     {
         public Staff() { }
 
-        public Staff(IList<Measure> measures)
+        public Staff(List<Measure> measures)
         {
             Measures = measures;
         }
 
-        public IList<Measure> Measures { get; set; }
+        public List<Measure> Measures { get; set; } = new List<Measure>();
         public int Lines { get; set; } = 5;
 
         public string PartName { get; set; }
+
+        public string AbbreviatedName { get; set; }
     }
 }

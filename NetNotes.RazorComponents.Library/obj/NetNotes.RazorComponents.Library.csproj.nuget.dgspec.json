@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\git\\Bliki": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +45,7 @@
           "dependencies": {
             "System.Text.Json": {
               "target": "Package",
-              "version": "[4.6.0, )"
+              "version": "[4.7.1, )"
             }
           },
           "imports": [
@@ -62,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -88,6 +89,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\git\\Bliki": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -108,17 +110,13 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "target": "Package",
-              "version": "[2.2.7, )"
-            },
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.AspNetCore.Components.Web": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -136,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

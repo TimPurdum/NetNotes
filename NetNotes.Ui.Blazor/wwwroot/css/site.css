@@ -148,3 +148,18 @@ app {
         display: block;
     }
 }
+
+
+.score h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.composer-line {
+    width: 100%;
+    display: inline-flex;
+}
+
+.score h2 {
+    width: 50%;
+}

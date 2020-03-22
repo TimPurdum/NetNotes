@@ -5,6 +5,41 @@ namespace NetNotes.Business.Elements
 {
     public struct TimeSignature
     {
+        public TimeSignature(string input)
+        {
+            var parts = input.Split("/");
+            if (int.TryParse(parts[0], out var top) &&
+                int.TryParse(parts[1], out var bottom))
+            {
+                Top = top;
+                Bottom = bottom;
+
+                if (Top % 3 == 0 && (Bottom > 4 || Top > 3))
+                {
+                    MeterType = MeterType.Compound;
+                    Beats = Top / 3;
+                    var subBeat = Durations.All().FirstOrDefault(d => d.TimeSymbol == bottom && d.Dots == 0);
+                    BeatDuration = Durations.All().FirstOrDefault(d => d.CommonTimeBeatLength == (subBeat.CommonTimeBeatLength * 3));
+                }
+                else if (Top % 2 == 1)
+                {
+                    MeterType = MeterType.Mixed;
+                    Beats = ((Top % 3) / 2) + (Top / 3);
+                    BeatDuration = null;
+                }
+                else
+                {
+                    MeterType = MeterType.Simple;
+                    Beats = Top;
+                    BeatDuration = Durations.All().FirstOrDefault(d => d.TimeSymbol == bottom && d.Dots == 0);
+                }
+            }
+            else
+            {
+                throw new UnrecognizedTimeSignatureException();
+            }
+        }
+
         public TimeSignature(int top, int bottom)
         {
             try
@@ -68,6 +103,25 @@ namespace NetNotes.Business.Elements
         public static TimeSignature _2_2 => CutTime;
         public static TimeSignature _3_2 => new TimeSignature(3, 2);
         public static TimeSignature _4_2 => new TimeSignature(4, 2);
+
+        public static TimeSignature GetTime(string input)
+        {
+            try
+            {
+                var timeParts = input.Split("/", StringSplitOptions.RemoveEmptyEntries);
+                return AllTimes.FirstOrDefault(t => t.Top == int.Parse(timeParts[0]) && t.Bottom == int.Parse(timeParts[1]));
+            }
+            catch
+            {
+                return new TimeSignature(input);
+            }
+
+        }
+
+        private static TimeSignature[] AllTimes =
+        {
+            _4_4, _3_4, _2_4, _6_8, _9_8, _12_8, _5_4, _3_8, _2_2, _3_2, _4_2
+        };
     }
 
 

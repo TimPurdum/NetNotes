@@ -13,3 +13,4 @@ C:\git\NoteSystem\NetNotes.Business\obj\Debug\netstandard2.1\NetNotes.Business.A
 C:\git\NoteSystem\NetNotes.Business\obj\Debug\netstandard2.1\NetNotes.Business.AssemblyInfo.cs
 C:\git\NoteSystem\NetNotes.Business\obj\Debug\netstandard2.1\NetNotes.Business.dll
 C:\git\NoteSystem\NetNotes.Business\obj\Debug\netstandard2.1\NetNotes.Business.pdb
+C:\git\NoteSystem\NetNotes.Business\obj\Debug\netstandard2.1\NetNotes.Business.csprojAssemblyReference.cache

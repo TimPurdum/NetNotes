@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace NetNotes.Business.Elements
 {
@@ -20,6 +21,7 @@ namespace NetNotes.Business.Elements
                     Name = "Quarter";
                     CommonTimeBeatLength = 1.0;
                     TimeSymbol = 4;
+                    Flags = 0;
                     break;
                 case "HALF":
                 case "H":
@@ -27,6 +29,7 @@ namespace NetNotes.Business.Elements
                     Name = "Half";
                     CommonTimeBeatLength = 2.0;
                     TimeSymbol = 2;
+                    Flags = 0;
                     break;
                 case "WHOLE":
                 case "W":
@@ -34,30 +37,37 @@ namespace NetNotes.Business.Elements
                     Name = "Whole";
                     CommonTimeBeatLength = 4.0;
                     TimeSymbol = 1;
+                    Flags = 0;
                     break;
                 case "EIGHTH":
                 case "E":
                 case "8":
+                case "8TH":
                     Name = "Eighth";
                     CommonTimeBeatLength = 0.5;
                     TimeSymbol = 8;
+                    Flags = 1;
                     break;
                 case "SIXTEENTH":
                 case "S":
                 case "16":
+                case "16TH":
                     Name = "Quarter";
                     CommonTimeBeatLength = 0.25;
                     TimeSymbol = 16;
+                    Flags = 2;
                     break;
                 case "THIRTYSECOND":
                 case "T":
                 case "32":
+                case "32ND":
                     Name = "ThirtySecond";
                     CommonTimeBeatLength = 0.125;
                     TimeSymbol = 32;
+                    Flags = 3;
                     break;
                 default:
-                    throw new UnknownDurationException();
+                    throw new UnknownDurationException(name);
             }
 
             Dots = dots;
@@ -77,6 +87,17 @@ namespace NetNotes.Business.Elements
         public double CommonTimeBeatLength { get; }
         public int Dots { get; }
         public int TimeSymbol { get; }
+        public int Flags { get; }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder(TimeSymbol.ToString());
+            for (var i = 0; i < Dots; i++)
+            {
+                sb.Append('.');
+            }
+            return sb.ToString();
+        }
     }
 
 
@@ -106,5 +127,10 @@ namespace NetNotes.Business.Elements
     }
 
 
-    public class UnknownDurationException : Exception { }
+    public class UnknownDurationException : Exception 
+    {
+        public UnknownDurationException(string message) : base(message)
+        {
+        }
+    }
 }

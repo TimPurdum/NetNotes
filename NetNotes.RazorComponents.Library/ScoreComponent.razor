@@ -1,0 +1,22 @@
+﻿<div class="score">
+    <h1>@Score?.Title</h1>
+    <div class="composer-line">
+        <h2>@Score?.Composer</h2>
+        <h2 style="text-align: right;">@Score?.Lyricist</h2>
+    </div>
+    @if (Score?.Staves?.Any() ?? false)
+    {
+        foreach (var stave in Score.Staves)
+        {
+            foreach (var ms in stave.Measures)
+            {
+                <MeasureComponent Measure="ms" Size="new Size(500, 200)" />
+            }
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Score Score { get; set; }
+}

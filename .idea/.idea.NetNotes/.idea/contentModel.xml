@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\git\NoteSystem" t="IncludeFlat">
+      <e p="NetNotes.Business" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Elements" t="Include">
+          <e p="ArticulationExpression.cs" t="Include" />
+          <e p="Barline.cs" t="Include" />
+          <e p="Beam.cs" t="Include" />
+          <e p="Clef.cs" t="Include" />
+          <e p="Duration.cs" t="Include" />
+          <e p="DynamicLevelExpression.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IExpression.cs" t="Include" />
+            <e p="IRhythmUnit.cs" t="Include" />
+          </e>
+          <e p="KeySignature.cs" t="Include" />
+          <e p="Measure.cs" t="Include" />
+          <e p="Note.cs" t="Include" />
+          <e p="NoteHead.cs" t="Include" />
+          <e p="Pitch.cs" t="Include" />
+          <e p="Rest.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="Staff.cs" t="Include" />
+          <e p="StemDirection.cs" t="Include" />
+          <e p="TextExpression.cs" t="Include" />
+          <e p="TimeSignature.cs" t="Include" />
+          <e p="UnrecognizedTimeSignatureException.cs" t="Include" />
+        </e>
+        <e p="MusicXmlScoreReader.cs" t="Include" />
+        <e p="NetNotes.Business.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NetNotes.Business.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SimpleTextScoreReader.cs" t="Include" />
+        <e p="UnrecognizedPatternException.cs" t="Include" />
+      </e>
+      <e p="NetNotes.RazorComponents.Library" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="BarlineComponent.razor" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ExampleJsInterop.cs" t="Include" />
+        <e p="FlatComponent.razor" t="Include" />
+        <e p="KeySignatureComponent.razor" t="Include" />
+        <e p="MeasureComponent.razor" t="Include" />
+        <e p="NetNotes.RazorComponents.Library.csproj" t="IncludeRecursive" />
+        <e p="NoteComponent.razor" t="Include" />
+        <e p="NoteHeadComponent.razor" t="Include" />
+        <e p="NoteStemComponent.razor" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="NetNotes.RazorComponents.Library.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Properties" t="Include">
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="quarterRest.png" t="Include" />
+        </e>
+        <e p="RestComponent.razor" t="Include" />
+        <e p="SharpComponent.razor" t="Include" />
+        <e p="StaffComponent.razor" t="Include" />
+        <e p="TimeSignatureComponent.razor" t="Include" />
+        <e p="Transform.cs" t="Include" />
+        <e p="TrebleClefComponent.razor" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="background.png" t="Include" />
+          <e p="exampleJsInterop.js" t="Include" />
+          <e p="quarterRest.png" t="Include" />
+          <e p="styles.css" t="Include" />
+        </e>
+      </e>
+      <e p="NetNotes.sln" t="IncludeFlat" />
+      <e p="NetNotes.Test" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MusicXMLScoreReaderTests.cs" t="Include" />
+        <e p="NetNotes.Test.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="NetNotes.Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SimpleTextScoreReaderTests.cs" t="Include" />
+      </e>
+      <e p="NetNotes.Ui.Blazor" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="NetNotes.Ui.Blazor.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="NetNotes.Ui.Blazor.AssemblyInfo.cs" t="Include" />
+              <e p="NetNotes.Ui.Blazor.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_Host.cshtml" t="Include" />
+          <e p="Error.razor" t="Include" />
+          <e p="Index.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="MainLayout.razor" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\tpurdum\.nuget\packages\microsoft.net.test.sdk\16.3.0\build\netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\tpurdum\.nuget\packages\microsoft.testplatform.testhost\16.3.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\tpurdum\.nuget\packages\microsoft.testplatform.testhost\16.3.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\tpurdum\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\tpurdum\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+    <e p="C:\Users\tpurdum\.nuget\packages\mstest.testadapter\2.0.0\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
+    <e p="C:\Users\tpurdum\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\tpurdum\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_NetNotes.-1964967030.00" t="ExcludeRecursive" />
+  </component>
+</project>

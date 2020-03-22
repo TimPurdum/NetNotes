@@ -1,19 +1,25 @@
 ﻿@page "/"
+@inject MusicXmlScoreReader ScoreReader
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<h1>NetNotes</h1>
 
 <div style="border: 1px solid pink; font-size: 0;">
-    @{
-        var ms = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "A/4, G/4, 4r, F/4")
-        {
-            ShowClef = true,
-            ShowKey = true,
-            ShowTime = true
-        };
-        var ms2 = new Measure(Clefs.Treble, TimeSignatures._4_4, KeySignatures.GFlatMajor, "C/4, D/4, 4r, E/4");
-    }
-    <MeasureComponent Measure="ms" Size="new Size(500, 200)" />
-    <MeasureComponent Measure="ms2" Size="new Size(400, 200)" />
+    <ScoreComponent Score="_displayScore" />
 </div>
+
+@code {
+    [Parameter]
+    public string MusicString { get; set; }
+
+    private Score _displayScore;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (_displayScore == null)
+        {
+            _displayScore = ScoreReader.ParseFile("laetatus_sum.xml");
+            StateHasChanged();
+        }
+    }
+}

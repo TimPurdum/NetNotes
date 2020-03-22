@@ -45,3 +45,7 @@ C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razo
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\BarlineComponent.razor.g.cs
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\RazorDeclaration\RestComponent.razor.g.cs
 C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\RestComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\RazorDeclaration\ScoreComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\ScoreComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\RazorDeclaration\FlagComponent.razor.g.cs
+C:\git\NoteSystem\NetNotes.RazorComponents.Library\obj\Debug\netstandard2.1\Razor\FlagComponent.razor.g.cs

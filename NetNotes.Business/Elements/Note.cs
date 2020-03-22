@@ -5,10 +5,11 @@ namespace NetNotes.Business.Elements
 {
     public class Note: IRhythmUnit
     {
-        public Note(Pitch pitch, Duration duration)
+        public Note(Pitch? pitch, Duration duration, IList<Beam> beams = null)
         {
             Pitch = pitch;
             Duration = duration;
+            Beams = beams;
         }
 
         public Note(string noteString)
@@ -25,7 +26,7 @@ namespace NetNotes.Business.Elements
             }
         }
 
-        public Pitch Pitch { get; set; }
+        public Pitch? Pitch { get; set; }
 
         public Duration Duration { get; set; }
 
@@ -33,5 +34,10 @@ namespace NetNotes.Business.Elements
 
         public StemDirection StemDirection { get; set; }
         public IList<Beam> Beams { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Pitch.ToString()}/{Duration.ToString()}";
+        }
     }
 }

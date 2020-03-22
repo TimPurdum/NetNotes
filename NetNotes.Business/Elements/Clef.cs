@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace NetNotes.Business.Elements
 {
@@ -60,5 +61,21 @@ namespace NetNotes.Business.Elements
         public static Clef MezzoSoprano => new Clef(2, 'C', "Mezzo-Soprano");
         public static Clef Baritone => new Clef(3, 'F', "Baritone");
         public static Clef SubBass => new Clef(5, 'F', "SubBass");
+
+        public static Clef GetClef(string name)
+        {
+            return AllClefs.First(c => c.Name.ToUpperInvariant().Equals(name.ToUpperInvariant()));
+        }
+
+        public static Clef GetClef(int keyLine, char keyNote)
+        {
+            return AllClefs.First(c => c.KeyLine == keyLine && c.KeyNote == keyNote);
+        }
+
+        private static Clef[] AllClefs =
+        {
+            Treble, Bass, Alto, Tenor, FrenchViolin,
+            Soprano, MezzoSoprano, Baritone, SubBass
+        };
     }
 }

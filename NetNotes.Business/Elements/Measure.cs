@@ -1,11 +1,16 @@
 ﻿using NetNotes.Business.Elements.Interfaces;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 
 namespace NetNotes.Business.Elements
 {
     public class Measure
     {
+        public Measure()
+        {
+        }
+
         public Measure(Clef clef, TimeSignature time, KeySignature key, IList<IRhythmUnit> pattern)
         {
             Clef = clef;
@@ -14,41 +19,14 @@ namespace NetNotes.Business.Elements
             Pattern = pattern;
         }
 
-        public Measure(Clef clef, TimeSignature time, KeySignature key, string patternString)
-        {
-            Clef = clef;
-            TimeSignature = time;
-            KeySignature = key;
-            var units = patternString.Split(',');
-            Pattern = new List<IRhythmUnit>();
-            foreach (var unit in units)
-            {
-                var p = unit.Trim().ToUpperInvariant();
-                if ((!p.EndsWith("QUARTER") && p.EndsWith("R")) ||
-                    p.EndsWith("REST"))
-                {
-                    Pattern.Add(new Rest(p));
-                }
-                else
-                {
-                    Pattern.Add(new Note(p));
-                }
-            }
-        }
+        public TimeSignature TimeSignature { get; set; } = TimeSignatures.CommonTime;
+        public KeySignature KeySignature { get; set; } = KeySignatures.CMajor;
 
-        public Measure(string measureJson)
-        {
-            JsonSerializer.Deserialize<Measure>(measureJson);
-        }
+        public IList<IRhythmUnit> Pattern { get; set; } = new List<IRhythmUnit>();
 
-        public TimeSignature TimeSignature { get; set; }
-        public KeySignature KeySignature { get; set; }
+        public Clef Clef { get; set; } = Clefs.Treble;
 
-        public IList<IRhythmUnit> Pattern { get; set; }
-
-        public Clef Clef { get; set; }
-
-        public IList<IExpression> Expressions { get; set; }
+        public IList<IExpression> Expressions { get; set; } = new List<IExpression>();
 
         public bool ShowClef { get; set; } = false;
         public bool ShowTime { get; set; } = false;
@@ -56,5 +34,25 @@ namespace NetNotes.Business.Elements
 
         public Barline StartingBarline { get; set; } = Barline.Single;
         public Barline EndingBarline { get; set; } = Barline.Single;
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            if (ShowClef)
+            {
+                sb.Append($"Clef-{Clef.Name}:");
+            }
+            if (ShowKey)
+            {
+                sb.Append($"Key-{KeySignature.MajorName}:");
+            }
+            if (ShowTime)
+            {
+                sb.Append($"Time-{TimeSignature.Top}/{TimeSignature.Bottom}:");
+            }
+            sb.Append(string.Join(",", Pattern));
+
+            return sb.ToString();
+        }
     }
 }

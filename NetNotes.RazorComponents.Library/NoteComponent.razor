@@ -1,5 +1,19 @@
-﻿<svg x="@Offset" y="@VerticalNotePosition()" width="@(LineSpacing * 2)" height="@(LineSpacing * 4)">
-    <NoteStemComponent Transform="@StemTransform()" Height="@(LineSpacing * 3)" Width="@(LineSpacing / 5)" />
+﻿<svg x="@Offset" y="@VerticalNotePosition()" width="@(LineSpacing * 4)" height="@(LineSpacing * 8)">
+    @if (Note.Duration.CommonTimeBeatLength < 4)
+    {
+        <NoteStemComponent Transform="@StemTransform()" Height="@(LineSpacing * 3)" Width="@(LineSpacing / 5)" />
+    }
+    @if (Note.Beams.Any())
+    {
+        // BUILD BEAMS
+    }
+    else if (Note.Duration.Flags > 0)
+    {
+        for (var i = 0; i < Note.Duration.Flags; i++)
+        {
+            <FlagComponent Transform="@FlagTransform(i)" />
+        }
+    }
     <NoteHeadComponent Transform="@HeadTransform()"
                        NoteHead="GetNoteHead()" />
 </svg>
@@ -16,7 +30,13 @@
 
     public string StemTransform()
     {
-        return $"translate({LineSpacing * 1.43}px, 0)";
+        if (Note.Pitch.HasValue && Note.Pitch.Value.StaffLocation < 6)
+        {
+            return $"translate({LineSpacing * 1.43}px, 0)";
+        }
+        var stemWidth = LineSpacing / 5;
+        stemWidth = stemWidth > 1 ? stemWidth : 1;
+        return $"translate({stemWidth * 1.2}px, {LineSpacing * 3.1}px)";
     }
 
     public string HeadTransform()
@@ -24,9 +44,22 @@
         return $"translate(0, {LineSpacing * 2.85}px) scale({0.009 * LineSpacing}, {0.009 * LineSpacing})";
     }
 
+    public string FlagTransform(int index)
+    {
+        var flagOffset = LineSpacing * index;
+        if (Note.Pitch.HasValue && Note.Pitch.Value.StaffLocation < 6)
+        {
+            // right-side up
+            return $"translate(-{LineSpacing * 9.3}px, -{LineSpacing * 9.4 - flagOffset}px) scale({0.04 * LineSpacing}, {0.04 * LineSpacing})";
+        }
+        // up-side down
+        return $"translate(-{LineSpacing * 10.5}px, {LineSpacing * 15.58 - flagOffset}px) scale({0.04 * LineSpacing}, -{0.04 * LineSpacing})";
+    }
+
     public double VerticalNotePosition()
     {
-        return (LineSpacing * 5.9) - (Note.Pitch.StaffLocation * (LineSpacing / 2));
+        var pitchValue = Note.Pitch.HasValue ? Note.Pitch.Value : Pitches.B4;
+        return (LineSpacing * 5.9) - (pitchValue.StaffLocation * (LineSpacing / 2));
     }
 
     public NoteHead GetNoteHead()

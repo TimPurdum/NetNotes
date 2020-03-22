@@ -5,6 +5,11 @@ namespace NetNotes.Business.Elements
 {
     public class Rest : IRhythmUnit
     {
+        public Rest(Duration duration)
+        {
+            Duration = duration;
+        }
+
         public Rest(string restString)
         {
             var invariant = restString.ToUpperInvariant();
@@ -22,5 +27,10 @@ namespace NetNotes.Business.Elements
 
         public Duration Duration { get; set; }
         public IList<IExpression> Expressions { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Duration.ToString()}r";
+        }
     }
 }
